@@ -66,9 +66,9 @@ fees = result - a;
 	if ((Number.isNaN(result)) || a <= 0){
 		document.getElementById("resultado").innerHTML = "Error, valor no aceptable.";	
 	}else if(option == 1){
-		document.getElementById("resultado").innerHTML = "Para $" +a+ " te deben pagar <strong id='resul'>$" + result.toFixed(2) + "</strong> para que el comprador cubra las fees ($" + fees.toFixed(2) + ").";
+		document.getElementById("resultado").innerHTML = "Para $" +a+ " te deben pagar <strong id='resul'>$" + result.toFixed(2) + "</strong> y asi el comprador cubra las fees ($" + fees.toFixed(2) + ").";
 	}else{
-		document.getElementById("resultado").innerHTML = "Para $" +a+ " debes pagar <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir las fees ($" + fees.toFixed(2) + ").";
+		document.getElementById("resultado").innerHTML = "Si venderás $" +a+ " debes pagar <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir las fees ($" + fees.toFixed(2) + ").";
 	}
 	valor = document.getElementById("resul");
 	valor.classList.add("strong");
