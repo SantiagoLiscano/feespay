@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora Fees</title>
+	<!--<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">-->
+	<link rel="stylesheet" href="Archivos_necesarios/icomoon/style.css">
+	<link rel="stylesheet" href="styled.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="contenedor">
+		<nav id ="opcion" class="banner paypal">
+			<div class="icon-play3" onclick="cambiar('iz');"></div>
+			<div class="icon-play3" onclick="cambiar('de');"></div>	
+		</nav>
+		<div class="form">
+			<div class="select">
+				<div id="comprar" onclick="select2();">comprar</div>
+				<div id="vender" class="selected" onclick="select1();">vender</div>
+			</div>
+			<div class="operation">
+			<span id="saludo">Ingresa la cantidad de dinero que deseas vender</span>
+			<span>Solo valores positivos</span>
+			<input type="text" id="valor" placeholder="$0.00" onfocus= "this.placeholder='$'; this.value='$'">
+			<!--<input class="clickMe" type="submit" value=">" onclick="comprar(); aparecer();" />-->
+			<button class="clickMe icon-checkmark" onclick="comprar(); aparecer();"></button>
+			<span id="resultado" class="aparecera"></span>		
+			</div>
+		</div>
+		<footer>
+			<span>Elaborado por Santiago Rodriguez - Actualmente solo fees de Venezuela</span>
+		</footer>
+	</div>
+</body>
+<script src="Archivos_necesarios/boton.js" defer></script>	
+</html>
