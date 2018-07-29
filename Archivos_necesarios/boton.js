@@ -10,42 +10,34 @@ var tope = document.getElementById("opcion");
 function cambiar(button){ 
 	switch (processor) {
 		case 1: if (processor == 1 && button == 'iz'){
-			console.log("me muevo un poco a la izquierda");
 		}else if (processor == 1 && button == 'de'){
-			console.log("me muevo a la derecha a la posicion 2");
 			processor = 2;
 			tope.classList.add("skrill");
 			tope.classList.remove("paypal");
 		}break;
 		case 2:if (processor == 2 && button == 'iz'){
-			console.log("me muevo a la izquierda a la posicion 1");
 			processor = 1;
 			tope.classList.add("paypal");
 			tope.classList.remove("skrill");
 		}else if (processor == 2 && button == 'de'){
-			console.log("me muevo a la derecha a la posicion 3");
 			processor = 3;
 			tope.classList.add("neteller");
 			tope.classList.remove("skrill");
 		}break;
 		case 3:if (processor == 3 && button == 'iz'){
-			console.log("me muevo a la izquierda a la posicion 2");
 			processor = 2;
 			tope.classList.add("skrill");
 			tope.classList.remove("neteller");
 		}else if (processor == 3 && button == 'de'){
-			console.log("me muevo a la derecha a la posicion 4");
 			processor = 4;
 			tope.classList.add("petro");
 			tope.classList.remove("neteller");
 		}break;
 		case 4:if (processor == 4 && button == 'iz'){
-			console.log("me muevo a la izquierda a la posicion 3");
 			processor = 3;
 			tope.classList.add("neteller");
 			tope.classList.remove("petro");
 		}else if (processor == 4 && button == 'de'){
-			console.log("me muevo un poco a la derecha");
 		}break;
 	}
 	return processor;
