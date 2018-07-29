@@ -28,26 +28,6 @@ nav{
 .petro{
 	background-image: url(payoneer.png);
 }
-.mover{
-	animation: negative .5s; 
-}
-@keyframes negative{
-	20%{
-		transform: rotate(45deg);
-	}
-	60%{
-		transform: rotate(0deg);
-	}
-	80%{
-		transform: rotate(-45deg);
-	}
-	100%{
-		20%{
-		transform: rotate(0deg);
-	}
-	}
-}
-
 nav div{
 	width: 30px;
 	height: 30px;
@@ -180,6 +160,10 @@ footer{
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
+}
+
+div #preload { 
+	display: none; 
 }
 
 @media screen and (max-width: 415px){
