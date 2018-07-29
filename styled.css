@@ -167,6 +167,9 @@ div #preload {
 }
 
 @media screen and (max-width: 415px){
+	.banner{
+		background-size: 100px;
+	}
 	#resultado{
 		font-size: .9rem;
 	}
