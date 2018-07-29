@@ -108,7 +108,6 @@ nav div:hover{
 	border-radius: 20px;
 	shape-outside: none;
 	outline-width: 0px;
-
 }
 .operation .clickMe{
 	padding: 10px 20px;
@@ -161,10 +160,11 @@ footer{
 	display: flex;
 	flex-direction: column;
 }
-
 div #preload { 
 	display: none; 
 }
+
+/*RESPONSIVE DESIGN*/
 
 @media screen and (max-width: 415px){
 	.banner{
