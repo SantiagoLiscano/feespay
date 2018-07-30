@@ -58,9 +58,9 @@ fees = result - a;
 	if ((Number.isNaN(result)) || a <= 0){
 		document.getElementById("resultado").innerHTML = "Error, valor no aceptable.";	
 	}else if(option == 1){
-		document.getElementById("resultado").innerHTML = "Para vender $" +a+ " te deben pagar <strong id='resul'>$" + result.toFixed(2) + "</strong> y asi el comprador cubre los impuestos ($" + fees.toFixed(2) + ").";
+		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + ").";
 	}else{
-		document.getElementById("resultado").innerHTML = "Si comprarás $" +a+ " debes pagar <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + ").";
+		document.getElementById("resultado").innerHTML = "Si quieres recibir $" +a+ " te deben enviar <strong id='resul'>$" + result.toFixed(2) + "</strong> para que cubran los impuestos ($" + fees.toFixed(2) + ").";
 	}
 	valor = document.getElementById("resul");
 	valor.classList.add("strong");
@@ -77,7 +77,7 @@ function select2(){
 	if (option == 1){
 		ven.classList.remove("selected");
 		com.classList.add("selected");
-		sal.innerHTML = "Ingresa la cantidad de dinero que deseas comprar";
+		sal.innerHTML = "Ingresa la cantidad de dinero que deseas recibir";
 		see.classList.add("aparecera");
 		place.value = "";
 		place.placeholder = "$0.00";
@@ -89,7 +89,7 @@ function select1(){
 	if (option == 0){
 		ven.classList.add("selected");
 		com.classList.remove("selected");
-		sal.innerHTML = "Ingresa la cantidad de dinero que deseas vender";
+		sal.innerHTML = "Ingresa la cantidad de dinero que deseas enviar";
 		see.classList.add("aparecera");
 		place.value = "";
 		place.placeholder = "$0.00";
