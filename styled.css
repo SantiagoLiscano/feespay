@@ -122,8 +122,7 @@ nav div:hover{
 }
 #resultado{
 	position: absolute;
-	top:83%;
-	left: calc(50%-width);
+	top:83.5%;
 	user-select: none;
 	font-size: 1rem;
 }
@@ -172,6 +171,7 @@ div #preload {
 	}
 	#resultado{
 		font-size: .9rem;
+		top: 80%;
 	}
 	.strong{
 		padding: 2.5px 5px;
