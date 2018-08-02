@@ -48,49 +48,48 @@ var a;
 var result;
 var fees;
 a = document.getElementById("valor").value;
-if(a.length >= 2 && a.charAt(0) == "$"){
-a= a.slice(1,a.length);
-}
+	if(a.length >= 2 && a.charAt(0) == "$"){
+		a= a.slice(1,a.length);
+	}
 a = parseFloat(a);
 result = (a + 0.3) / 0.946;
 fees = result - a;
 	if (isNaN(result) || a <= 0){
 		document.getElementById("resultado").innerHTML = "Error, valor no aceptable.";	
 	}else if(option == 1){
-		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + "). &nbsp;&nbsp; <strong id='piso' class='icon-loop2'></strong>";
+		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + "). &nbsp;&nbsp; <div id='container'><strong id='piso' class='icon-loop2'></strong> <span id='explanation'>Si quieres saber cuanto puedes enviar con $"+a+" pulsa aqui!</span></div> " ;
 		var piso = document.getElementById('piso');
 		piso.classList.add('girar');
 		piso.addEventListener('click', function(){
-				var resto = (a - fees.toFixed(2)) - Math.floor((a - fees.toFixed(2)));
-				if (a < 0.35)
+			var resto = (a - fees.toFixed(2)) - Math.floor((a - fees.toFixed(2)));
+			if (a < 0.35)
 				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ " no tienes dinero suficiente para realizar una transferencia.";
-				
-				else if (a < 1.41){
-					document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + ((a - fees.toFixed(2))).toFixed(2) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ").";
-				}else{
-					document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + Math.floor((a - fees.toFixed(2))) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ") quedandote en la cuenta $" + resto.toFixed(2) + " restantes.";
-				}
-				if (!isNaN(result) && a > 0){
-					valor = document.getElementById("resul");
-					valor.classList.add("strong");
-					valor.classList.add("tipo" +processor);
-				}
-			});
+			else if (a < 1.41){
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + ((a - fees.toFixed(2))).toFixed(2) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ").";
+			}else{
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + Math.floor((a - fees.toFixed(2))) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ") quedandote en la cuenta $" + resto.toFixed(2) + " restantes.";
+			}
+			if (!isNaN(result) && a > 0){
+				valor = document.getElementById("resul");
+				valor.classList.add("strong");
+				valor.classList.add("tipo" +processor);
+			}
+		});
 	}else{
 		document.getElementById("resultado").innerHTML = "Si quieres recibir $" +a+ " te deben enviar <strong id='resul'>$" + result.toFixed(2) + "</strong> para que cubran los impuestos ($" + fees.toFixed(2) + ").";
 	}
 	if (!isNaN(result) && a > 0){
-	valor = document.getElementById("resul");
-	valor.classList.add("strong");
-	valor.classList.add("tipo" +processor);
+		valor = document.getElementById("resul");
+		valor.classList.add("strong");
+		valor.classList.add("tipo" +processor);
 	}
-	place.value = "";
-	place.placeholder = "$0.00";
+place.value = "";
+place.placeholder = "$0.00";
 }
 
 function aparecer(){
- 	see.classList.remove("aparecera");
-}
+	see.classList.remove("aparecera");
+	}
 
 function select2(){
 	if (option == 1){

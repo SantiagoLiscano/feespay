@@ -147,6 +147,8 @@ background-color: #fff3bf;
 .girar{
 	display: inline-block;
 	animation: girar ease-in-out 4s infinite;
+	transform-origin: center;
+	position: relative;
 }
 .girar:hover{
 	cursor: pointer;
@@ -158,6 +160,36 @@ background-color: #fff3bf;
 	100%{
 		transform: rotate(360deg)
 	}
+}
+#container{
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	position: relative;
+}
+
+#container #piso:hover + #explanation{
+	background-color: #212529;
+	color: white;
+}
+#explanation{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 150px;
+	height: 75px;
+	border-radius: 15px;
+	font-size: .7rem;
+	padding: 10px;
+	left: -305%;
+	top: 120%;
+	box-sizing: border-box;
+	transition-duration: .3s;
+	color: transparent;
+	background-color: transparent;
+	
 }
 .aparecera{
 	display: none;
