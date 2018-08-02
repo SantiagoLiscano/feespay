@@ -40,13 +40,12 @@ function cambiar(button){
 		}else if (processor == 4 && button == 'de'){
 		}break;
 	}
-	return processor;
 }
 
 
 function comprar(){
 var a;
-var results;
+var result;
 var fees;
 a = document.getElementById("valor").value;
 if(a.length >= 2 && a.charAt(0) == "$"){
@@ -55,16 +54,29 @@ a= a.slice(1,a.length);
 a = parseFloat(a);
 result = (a + 0.3) / 0.946;
 fees = result - a;
-	if ((Number.isNaN(result)) || a <= 0){
+	if (isNaN(result) || a <= 0){
 		document.getElementById("resultado").innerHTML = "Error, valor no aceptable.";	
 	}else if(option == 1){
-		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + ").";
+		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + "). &nbsp;&nbsp; <strong id='piso' class='icon-loop2'></strong>";
+		var piso = document.getElementById('piso');
+		piso.classList.add('girar');
+		piso.addEventListener('click', function(){
+				var resto = (a - fees.toFixed(2)) - Math.floor((a - fees.toFixed(2)));
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + Math.floor((a - fees.toFixed(2))) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ") quedandote en la cuenta $" + resto.toFixed(2) + " restantes.";
+					if (!isNaN(result) && a > 0){
+					valor = document.getElementById("resul");
+					valor.classList.add("strong");
+					valor.classList.add("tipo" +processor);
+						}
+			});
 	}else{
 		document.getElementById("resultado").innerHTML = "Si quieres recibir $" +a+ " te deben enviar <strong id='resul'>$" + result.toFixed(2) + "</strong> para que cubran los impuestos ($" + fees.toFixed(2) + ").";
 	}
+	if (!isNaN(result) && a > 0){
 	valor = document.getElementById("resul");
 	valor.classList.add("strong");
 	valor.classList.add("tipo" +processor);
+	}
 	place.value = "";
 	place.placeholder = "$0.00";
 }
@@ -96,3 +108,4 @@ function select1(){
 		option = 1;
 	}
 }
+

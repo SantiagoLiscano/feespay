@@ -125,9 +125,10 @@ nav div:hover{
 	top:83.5%;
 	user-select: none;
 	font-size: 1rem;
+	line-height: 150%;
 }
 .strong{
-	padding: 5px 10px;
+	padding: 1px 8px;
 	border-radius: 15px;
 }
 .tipo1{
@@ -143,6 +144,21 @@ background-color: #d3f9d8;
 background-color: #fff3bf;
 }
 
+.girar{
+	display: inline-block;
+	animation: girar ease-in-out 4s infinite;
+}
+.girar:hover{
+	cursor: pointer;
+}
+@keyframes girar{
+	50%{
+		transform: rotate(0deg)
+	}
+	100%{
+		transform: rotate(360deg)
+	}
+}
 .aparecera{
 	display: none;
 }
