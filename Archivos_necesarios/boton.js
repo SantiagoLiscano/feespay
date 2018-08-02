@@ -62,12 +62,19 @@ fees = result - a;
 		piso.classList.add('girar');
 		piso.addEventListener('click', function(){
 				var resto = (a - fees.toFixed(2)) - Math.floor((a - fees.toFixed(2)));
-				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + Math.floor((a - fees.toFixed(2))) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ") quedandote en la cuenta $" + resto.toFixed(2) + " restantes.";
-					if (!isNaN(result) && a > 0){
+				if (a < 0.35)
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ " no tienes dinero suficiente para realizar una transferencia.";
+				
+				else if (a < 1.41){
+					document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + ((a - fees.toFixed(2))).toFixed(2) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ").";
+				}else{
+					document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + Math.floor((a - fees.toFixed(2))) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ") quedandote en la cuenta $" + resto.toFixed(2) + " restantes.";
+				}
+				if (!isNaN(result) && a > 0){
 					valor = document.getElementById("resul");
 					valor.classList.add("strong");
 					valor.classList.add("tipo" +processor);
-						}
+				}
 			});
 	}else{
 		document.getElementById("resultado").innerHTML = "Si quieres recibir $" +a+ " te deben enviar <strong id='resul'>$" + result.toFixed(2) + "</strong> para que cubran los impuestos ($" + fees.toFixed(2) + ").";
