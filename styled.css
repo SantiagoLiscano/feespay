@@ -123,9 +123,72 @@ nav div:hover{
 #resultado{
 	position: absolute;
 	top:83.5%;
+	width: 100%;
 	user-select: none;
 	font-size: 1rem;
 	line-height: 150%;
+	margin-bottom: 0;
+}
+#next{
+	display: inline-block;
+	position: relative;
+}
+#next div{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	left: 19%;
+	top: 110%;
+	border-radius: 3px;
+	color: transparent;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#next:hover div{
+	background-color: rgb(50,50,50);
+	color: rgb(220, 220, 220);
+}
+#next div:hover{
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+}
+#next .message::after{
+	content: 'Copiado!';
+	font-family: 'Open Sans', sans-serif;
+	font-size: .8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 20%;
+	left: 120%;
+	width: 80px;
+	height: 20px;
+	color: transparent;
+	border-radius: 20px;
+	background-color: transparent;
+	animation: hub 1.5s ease-in-out;
+}
+@keyframes hub {
+	0%{
+		color: transparent;
+		background-color: transparent;
+	}
+	20%{
+		color: white;
+		background-color: rgb(50,50,50);
+	}
+	80%{
+		color: white;
+		background-color: rgb(50,50,50);
+	}
+	100%{
+		color: transparent;
+		background-color: transparent;
+	}
 }
 .strong{
 	padding: 1px 8px;

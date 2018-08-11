@@ -57,14 +57,14 @@ fees = result - a;
 	if (isNaN(result) || a <= 0){
 		document.getElementById("resultado").innerHTML = "Error, valor no aceptable.";	
 	}else if(option == 1){
-		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <strong id='resul'>$" + result.toFixed(2) + "</strong> para cubrir los impuestos ($" + fees.toFixed(2) + "). &nbsp;&nbsp; <div id='container'><strong id='piso' class='icon-loop2'></strong> <span id='explanation'>Si quieres saber cuanto puedes enviar con $"+a+" pulsa aqui!</span></div> " ;
+		document.getElementById("resultado").innerHTML = "Si quieres enviar $" +a+ " debes transferir <div id='next'><strong id='resul'>$" + result.toFixed(2) + "</strong><div id='copy' class='icon-copy' onclick='copyt();'></div></div> para cubrir los impuestos ($" + fees.toFixed(2) + "). &nbsp;&nbsp; <div id='container'><strong id='piso' class='icon-loop2'></strong> <span id='explanation'>Si quieres saber cuanto puedes enviar con $"+a+" pulsa aqui!</span></div> " ;
 		var piso = document.getElementById('piso');
 		piso.classList.add('girar');
 		piso.addEventListener('click', function(){
 			if (a < 0.35)
 				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ " no tienes dinero suficiente para realizar una transferencia.";
 			else if (a < 1.41){
-				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + ((a - fees.toFixed(2))).toFixed(2) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ").";
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <div id='next'><strong id='resul'>$" + ((a - fees.toFixed(2))).toFixed(2) + "</strong><div id='copy' class='icon-copy' onclick='copyt();'></div></div> debido a los impuestos ($" + fees.toFixed(2) + ").";
 			}else{
 				var pru = a;						
 				while (pru > (a - fees.toFixed(2))){
@@ -76,7 +76,7 @@ fees = result - a;
 				if((pru + 0.3) / 0.946 > a){
 					pru -= 1;
 				}		
-				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + pru + "</strong> debido a los impuestos ($" + ((pru + 0.3) / 0.946 - pru).toFixed(2) + ") quedandote en la cuenta $" + (a - (pru + 0.3) / 0.946).toFixed(2)  + " restantes.";
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <div id='next'><strong id='resul'>$" + pru + "</strong><div id='copy' class='icon-copy' onclick='copyt();'></div></div> debido a los impuestos ($" + ((pru + 0.3) / 0.946 - pru).toFixed(2) + ") quedandote en la cuenta $" + (a - (pru + 0.3) / 0.946).toFixed(2)  + " restantes.";
 			}
 			if (!isNaN(result) && a > 0){
 				valor = document.getElementById("resul");
@@ -85,7 +85,7 @@ fees = result - a;
 			}
 		});
 	}else{
-		document.getElementById("resultado").innerHTML = "Si quieres recibir $" +a+ " te deben enviar <strong id='resul'>$" + result.toFixed(2) + "</strong> para que cubran los impuestos ($" + fees.toFixed(2) + ").";
+		document.getElementById("resultado").innerHTML = "Si quieres recibir $" +a+ " te deben enviar <div id='next'><strong id='resul'>$" + result.toFixed(2) + "</strong><div id='copy' class='icon-copy' onclick='copyt();'></div></div> para que cubran los impuestos ($" + fees.toFixed(2) + ").";
 	}
 	if (!isNaN(result) && a > 0){
 		valor = document.getElementById("resul");
@@ -124,3 +124,24 @@ function select1(){
 	}
 }
 
+function copyt(){
+	var text = document.getElementById('resul').innerHTML;
+	var message = document.getElementById('copy');
+	message.classList.toggle('message');
+	text = text.slice(1, text.length);
+		// Create new element
+		var el = document.createElement('textarea');
+		// Set value (string to be copied)
+		el.value = text;
+		// Set non-editable to avoid focus and move outside of view
+		el.setAttribute('readonly', '');
+		el.style = {position: 'absolute', left: '-9999px'};
+		document.body.appendChild(el);
+		// Select text inside element
+		el.select();
+		// Copy text to clipboard
+		document.execCommand('copy');
+		// Remove temporary element
+		document.body.removeChild(el);
+	 
+}
