@@ -67,7 +67,17 @@ fees = result - a;
 			else if (a < 1.41){
 				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + ((a - fees.toFixed(2))).toFixed(2) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ").";
 			}else{
-				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + Math.floor((a - fees.toFixed(2))) + "</strong> debido a los impuestos ($" + fees.toFixed(2) + ") quedandote en la cuenta $" + resto.toFixed(2) + " restantes.";
+				var pru = a;						
+				while (pru > (a - fees.toFixed(2))){
+					pru--;
+				}
+				while((pru + 0.3) / 0.946 < a){
+					pru++;
+				}
+				if((pru + 0.3) / 0.946 > a){
+					pru -= 1;
+				}		
+				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ ", te alcanzará para transferir <strong id='resul'>$" + pru + "</strong> debido a los impuestos ($" + ((pru + 0.3) / 0.946 - pru).toFixed(2) + ") quedandote en la cuenta $" + (a - (pru + 0.3) / 0.946).toFixed(2)  + " restantes.";
 			}
 			if (!isNaN(result) && a > 0){
 				valor = document.getElementById("resul");
