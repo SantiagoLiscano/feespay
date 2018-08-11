@@ -61,7 +61,6 @@ fees = result - a;
 		var piso = document.getElementById('piso');
 		piso.classList.add('girar');
 		piso.addEventListener('click', function(){
-			var resto = (a - fees.toFixed(2)) - Math.floor((a - fees.toFixed(2)));
 			if (a < 0.35)
 				document.getElementById("resultado").innerHTML = "Si tu maximo es de $" +a+ " no tienes dinero suficiente para realizar una transferencia.";
 			else if (a < 1.41){
