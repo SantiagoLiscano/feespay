@@ -7,6 +7,12 @@ var place = document.getElementById("valor");
 var processor = 1;
 var tope = document.getElementById("opcion");
 
+place.addEventListener("keyup", function(event){
+	if (event.keyCode == 13){
+		comprar();
+	}
+});
+
 function cambiar(button){ 
 	switch (processor) {
 		case 1: if (processor == 1 && button == 'iz'){
