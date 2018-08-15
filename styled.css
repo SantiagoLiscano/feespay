@@ -285,7 +285,7 @@ div #preload {
 	}
 	#resultado{
 		font-size: .9rem;
-		top: 80%;
+		top: 77%;
 	}
 	.strong{
 		padding: 2.5px 5px;
@@ -300,8 +300,5 @@ div #preload {
 	}
 	.select{
 		margin-bottom: 20px;
-	}
-	#resultado{
-		top: 77%;
 	}
 }
