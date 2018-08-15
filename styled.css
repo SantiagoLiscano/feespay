@@ -116,6 +116,7 @@ nav div:hover{
 	border: 1px solid rgba(0,0,0,.3);
 	outline-width: 0px;
 	margin-bottom: 30px;
+	min-height:35px; 
 }
 .operation .clickMe:hover{
 	background-color: rgba(0,0,0,.1);
@@ -279,6 +280,7 @@ div #preload {
 @media screen and (max-width: 415px){
 	.banner{
 		background-size: 100px;
+		height: 35px;
 	}
 	#resultado{
 		font-size: .9rem;
@@ -287,5 +289,11 @@ div #preload {
 	.strong{
 		padding: 2.5px 5px;
 		border-radius: 7.5px;
+	}
+	.operation{
+		height: 400px;
+	}
+	.form{
+		width: 100%;
 	}
 }
